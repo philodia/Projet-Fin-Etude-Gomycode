@@ -34,8 +34,8 @@ const InvoiceDetail = ({ invoiceId }) => {
       <div className="invoice-info">
         <p><strong>ID Facture:</strong> {invoice.invoiceId}</p>
         <p><strong>Commande ID:</strong> {invoice.orderId}</p>
-        <p><strong>Montant Dû:</strong> {invoice.amountDue}€</p>
-        <p><strong>Montant Payé:</strong> {invoice.amountPaid}€</p>
+        <p><strong>Montant Dû:</strong> {invoice.amountDue}XOF</p>
+        <p><strong>Montant Payé:</strong> {invoice.amountPaid}XOF</p>
         <p><strong>Statut du Paiement:</strong> {invoice.paymentStatus}</p>
         <p><strong>Date d'Émission:</strong> {new Date(invoice.issueDate).toLocaleDateString()}</p>
       </div>

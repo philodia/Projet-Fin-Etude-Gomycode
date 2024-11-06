@@ -54,7 +54,7 @@ const ExpenseList = () => {
               <tr key={expense.expenseId}>
                 <td>{expense.expenseId}</td>
                 <td>{expense.description}</td>
-                <td>{expense.amount}€</td>
+                <td>{expense.amount}XOF</td>
                 <td>{new Date(expense.date).toLocaleDateString()}</td>
                 <td>
                   <button onClick={() => handleDelete(expense.expenseId)} className="delete-button">Supprimer</button>

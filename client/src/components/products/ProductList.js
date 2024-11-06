@@ -38,7 +38,7 @@ const ProductList = () => {
           <li key={product.productId} className="product-item">
             <h3>{product.name}</h3>
             <p>Description : {product.description}</p>
-            <p>Prix : {product.price} €</p>
+            <p>Prix : {product.price} XOF</p>
             <p>Quantité en stock : {product.stock}</p>
             <button className="add-to-cart-button">Ajouter au Panier</button>
           </li>

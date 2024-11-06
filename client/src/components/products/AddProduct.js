@@ -59,7 +59,7 @@ const AddProduct = () => {
           ></textarea>
         </div>
         <div className="form-group">
-          <label htmlFor="price">Prix (€)</label>
+          <label htmlFor="price">Prix (XOF)</label>
           <input
             type="number"
             id="price"

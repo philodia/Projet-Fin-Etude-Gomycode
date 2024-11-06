@@ -51,7 +51,7 @@ const SalesReport = () => {
               <tr key={sale.orderId}>
                 <td>{sale.orderId}</td>
                 <td>{sale.customerId}</td>
-                <td>{sale.totalAmount}€</td>
+                <td>{sale.totalAmount}XOF</td>
                 <td>{new Date(sale.orderDate).toLocaleDateString()}</td>
                 <td>{sale.status}</td>
               </tr>

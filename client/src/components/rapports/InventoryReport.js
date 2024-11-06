@@ -52,7 +52,7 @@ const InventoryReport = () => {
                 <td>{item.productId}</td>
                 <td>{item.name}</td>
                 <td>{item.quantity}</td>
-                <td>{item.unitPrice}€</td>
+                <td>{item.unitPrice}XOF</td>
                 <td>{item.status}</td>
               </tr>
             ))}

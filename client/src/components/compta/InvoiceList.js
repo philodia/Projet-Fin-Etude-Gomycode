@@ -44,8 +44,8 @@ const InvoiceList = () => {
             {invoices.map((invoice) => (
               <tr key={invoice.invoiceId}>
                 <td>{invoice.invoiceId}</td>
-                <td>{invoice.amountDue}€</td>
-                <td>{invoice.amountPaid}€</td>
+                <td>{invoice.amountDue}XOF</td>
+                <td>{invoice.amountPaid}XOF</td>
                 <td>{invoice.paymentStatus}</td>
                 <td>{new Date(invoice.issueDate).toLocaleDateString()}</td>
               </tr>

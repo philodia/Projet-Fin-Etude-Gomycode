@@ -33,7 +33,7 @@ const ProductDetail = ({ productId }) => {
       <h2>{product.name}</h2>
       <img src={product.imageUrl} alt={product.name} className="product-image" />
       <p><strong>Description:</strong> {product.description}</p>
-      <p><strong>Prix:</strong> {product.price}€</p>
+      <p><strong>Prix:</strong> {product.price}XOF</p>
       <button className="add-to-cart-button">Ajouter au panier</button>
     </div>
   );

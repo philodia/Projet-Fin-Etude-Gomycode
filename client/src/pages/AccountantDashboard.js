@@ -65,7 +65,7 @@ const AccountantDashboard = () => {
                 <td>{invoice.id}</td>
                 <td>{new Date(invoice.date).toLocaleDateString()}</td>
                 <td>{invoice.client}</td>
-                <td>{invoice.amount} €</td>
+                <td>{invoice.amount} XOF</td>
               </tr>
             ))}
           </tbody>
@@ -111,7 +111,7 @@ const AccountantDashboard = () => {
                 <td>{expense.id}</td>
                 <td>{new Date(expense.date).toLocaleDateString()}</td>
                 <td>{expense.category}</td>
-                <td>{expense.amount} €</td>
+                <td>{expense.amount} XOF</td>
               </tr>
             ))}
           </tbody>

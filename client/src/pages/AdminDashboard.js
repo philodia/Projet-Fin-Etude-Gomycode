@@ -53,7 +53,7 @@ const AdminDashboard = () => {
       <div className="dashboard-overview">
         <div className="card">
           <h3>Ventes Totales</h3>
-          <p>{salesOverview.totalSales || 0} €</p>
+          <p>{salesOverview.totalSales || 0} XOF</p>
         </div>
         <div className="card">
           <h3>Nombre d'Utilisateurs</h3>
@@ -78,7 +78,7 @@ const AdminDashboard = () => {
           {financialReports.map((report, index) => (
             <tr key={index}>
               <td>{new Date(report.date).toLocaleDateString()}</td>
-              <td>{report.amount} €</td>
+              <td>{report.amount} XOF</td>
               <td>{report.description}</td>
             </tr>
           ))}

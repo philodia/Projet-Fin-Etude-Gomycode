@@ -50,8 +50,8 @@ const FinanceReport = () => {
             {financeData.map((item) => (
               <tr key={item.invoiceId}>
                 <td>{item.invoiceId}</td>
-                <td>{item.amountDue}€</td>
-                <td>{item.amountPaid}€</td>
+                <td>{item.amountDue}XOF</td>
+                <td>{item.amountPaid}XOF</td>
                 <td>{item.paymentStatus}</td>
                 <td>{new Date(item.issueDate).toLocaleDateString()}</td>
               </tr>

@@ -65,7 +65,7 @@ const ManagerDashboard = () => {
                 <td>{order.id}</td>
                 <td>{new Date(order.date).toLocaleDateString()}</td>
                 <td>{order.status}</td>
-                <td>{order.total} €</td>
+                <td>{order.total} XOF</td>
               </tr>
             ))}
           </tbody>
@@ -89,7 +89,7 @@ const ManagerDashboard = () => {
                 <td>{product.id}</td>
                 <td>{product.name}</td>
                 <td>{product.quantity}</td>
-                <td>{product.price} €</td>
+                <td>{product.price} XOF</td>
               </tr>
             ))}
           </tbody>
