@@ -1,0 +1,97 @@
+/* Styles généraux du header */
+.header {
+  background-color: #f8f9fa;
+  padding: 1rem 0;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* Logo de l'application */
+.logo {
+  font-size: 1.5rem;
+  color: #007bff;
+  font-weight: bold;
+  margin: 0;
+}
+
+/* Styles de la navigation */
+.nav {
+  display: flex;
+}
+
+.nav-links {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-links li {
+  margin-left: 1rem;
+}
+
+.nav-links a {
+  display: flex;
+  align-items: center;
+  color: #007bff;
+  text-decoration: none;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0056b3;
+}
+
+.nav-links a svg {
+  margin-right: 0.5rem;
+  font-size: 1.1rem; /* Taille des icônes */
+}
+
+/* Bouton de déconnexion */
+.logout-button {
+  background: none;
+  border: none;
+  color: #dc3545;
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease;
+}
+
+.logout-button svg {
+  margin-right: 0.5rem;
+  font-size: 1.1rem;
+}
+
+.logout-button:hover {
+  color: #a71d2a;
+}
+
+/* Information utilisateur avec avatar */
+.user-info {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 1rem;
+}
+
+.user-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  margin-right: 0.5rem;
+  object-fit: cover;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}

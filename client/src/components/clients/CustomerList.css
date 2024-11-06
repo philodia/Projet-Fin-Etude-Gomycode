@@ -1,0 +1,45 @@
+.customer-list {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .customer-list h2 {
+    text-align: center;
+    margin-bottom: 15px;
+    font-size: 24px;
+  }
+  
+  .customer-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+  
+  .customer-table th, .customer-table td {
+    padding: 12px;
+    border: 1px solid #ddd;
+    text-align: left;
+  }
+  
+  .customer-table th {
+    background-color: #f4f4f4;
+    font-weight: bold;
+  }
+  
+  .customer-table tr:nth-child(even) {
+    background-color: #f9f9f9;
+  }
+  
+  .customer-table ul {
+    padding-left: 20px;
+    margin: 0;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+  }
+  

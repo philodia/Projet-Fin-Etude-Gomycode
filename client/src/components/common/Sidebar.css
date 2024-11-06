@@ -1,0 +1,33 @@
+.sidebar {
+    width: 250px; /* Largeur du menu latéral */
+    background-color: #343a40; /* Couleur de fond */
+    color: #ffffff; /* Couleur du texte */
+    padding: 1rem;
+    position: fixed; /* Position fixe pour le menu */
+    height: 100%; /* Prend toute la hauteur */
+  }
+  
+  .sidebar-title {
+    font-size: 1.5rem; /* Taille du titre */
+    margin-bottom: 1rem; /* Espace sous le titre */
+  }
+  
+  .sidebar-links {
+    list-style: none; /* Supprime les puces */
+    padding: 0; /* Supprime le padding */
+  }
+  
+  .sidebar-links li {
+    margin: 1rem 0; /* Espace entre les liens */
+  }
+  
+  .sidebar-links li a {
+    color: #ffffff; /* Couleur du texte */
+    text-decoration: none; /* Supprime le soulignement */
+    transition: color 0.3s; /* Transition douce */
+  }
+  
+  .sidebar-links li a:hover {
+    color: #ffc107; /* Couleur au survol */
+  }
+  

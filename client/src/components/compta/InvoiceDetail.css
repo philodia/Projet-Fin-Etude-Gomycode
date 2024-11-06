@@ -1,0 +1,30 @@
+.invoice-detail {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .invoice-detail h2 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 24px;
+  }
+  
+  .invoice-info p {
+    margin: 10px 0;
+    font-size: 16px;
+  }
+  
+  .invoice-info strong {
+    font-weight: bold;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 20px;
+  }
+  

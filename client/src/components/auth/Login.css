@@ -1,0 +1,120 @@
+/* Styles généraux */
+ body {
+  background-image: url('../../assets/img/image2.jpeg'); /* Remplacez par le chemin de votre image */
+  background-color: #706b6b;
+  background-size: cover;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  color: white;
+  font-family: sans-serif; /* Customize font family */
+}
+
+.login-container {
+  max-width: 400px;
+  margin: 6rem auto 0; /* Ajusté pour laisser de l'espace pour l'avatar */
+  margin-top: 10px;
+  padding: 2rem;
+  background-color: #f3f1f05b;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(170, 93, 4, 0.336);
+  position: relative;
+  text-align: center; /* Centre le contenu à l'intérieur */
+  display: flex; /* Utiliser flex pour aligner les éléments horizontalement */
+  flex-direction: column; /* Garde l'alignement vertical pour le reste du contenu */
+  align-items: center; /* Centre horizontalement tous les éléments */
+}
+
+/* Aligne le logo et l'avatar dans un conteneur */
+.logo-avatar-container {
+  display: flex;
+  align-items: center; /* Aligne le logo et l'avatar verticalement */
+  margin-bottom: 1rem; /* Espace sous le conteneur logo-avatar */
+}
+
+.login-logo {
+  width: 160px;
+  height: auto;
+  border-radius: 50px;
+  margin-right: 0px; /* Espace entre le logo et l'avatar */
+}
+
+.avatar-image {
+  width: 90px; /* Ajustez la taille selon vos besoins */
+  height: 90px;
+  border-radius: 50%; /* Pour un effet circulaire */
+  object-fit: cover; /* Pour garder les proportions de l'image */
+  border: 4px solid #44b7d4; /* Ajuste l’épaisseur de la bordure */
+  background-color: #fff;
+  padding: 2px; /* Ajoute de l'espace entre l'image et la bordure */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Autres styles restants inchangés... */
+
+/* Formulaire */
+.login-form .form-label {
+  font-size: 0.95rem;
+  color: #555555;
+  font-weight: 600;
+}
+
+.login-form .input-group-text {
+  background-color: #e9ecef;
+  border: none;
+  color: #6c757d;
+}
+
+.login-form .form-control {
+  border: 1px solid #dcdcdc;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+}
+
+.login-form .form-control:focus {
+  border-color: #007bff;
+  box-shadow: 0 0 8px rgba(0, 123, 255, 0.25);
+}
+
+/* Bouton de connexion */
+.btn-primary {
+  background-color: #007bff;
+  border: none;
+  border-radius: 5px;
+  padding: 0.75rem;
+  font-size: 1rem;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  width: 50%; /* Réduit la largeur de 50% */
+  max-width: 200px; /* Limite la largeur maximale */
+  display: block; /* Rend le bouton en mode bloc */
+  margin: 0 auto; /* Centre le bouton */
+}
+
+.btn-primary:hover {
+  background-color: #0056b3;
+}
+
+/* Message d'erreur */
+.alert-danger {
+  font-size: 0.9rem;
+  color: #c9081c;
+  background-color: #f8d7da;
+  border: 1px solid #f5c6cb;
+  border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 576px) {
+  .login-container {
+      padding: 1.5rem;
+  }
+
+  .login-title {
+      font-size: 1.25rem;
+  }
+}

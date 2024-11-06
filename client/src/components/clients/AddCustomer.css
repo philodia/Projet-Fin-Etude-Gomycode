@@ -1,0 +1,60 @@
+.add-customer {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  }
+  
+  .add-customer h2 {
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .add-customer-form {
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .add-customer-form label {
+    font-size: 16px;
+    margin: 10px 0;
+  }
+  
+  .add-customer-form input {
+    padding: 8px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin-top: 5px;
+  }
+  
+  .submit-button {
+    margin-top: 20px;
+    padding: 10px;
+    font-size: 16px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+  }
+  
+  .submit-button:hover {
+    background-color: #45a049;
+  }
+  
+  .success-message {
+    color: green;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .error-message {
+    color: red;
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
