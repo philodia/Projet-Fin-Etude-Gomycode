@@ -7,6 +7,7 @@ import Header from './components/common/Header';
 import Sidebar from './components/common/Sidebar';
 import Dashboard from './pages/Dashboard';
 import AdminDashboard from './pages/AdminDashboard';
+import User from './components/layouts/User';
 import ManagerDashboard from './pages/ManagerDashboard';
 import AccountantDashboard from './pages/AccountantDashboard';
 import PrivateRoute from './components/security/PrivateRoute';
@@ -46,6 +47,7 @@ function App() {
                 </PrivateRoute>
               }
             />
+            
             <Route
               path="/manager"
               element={

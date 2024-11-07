@@ -1,82 +1,81 @@
-const Invoice = require('../models/Invoice'); // Importer le modèle Invoice
-const Order = require('../models/Order'); // Importer le modèle Order si nécessaire
+const Invoice = require('../models/Invoice');
 
 // Créer une nouvelle facture
 const createInvoice = async (req, res) => {
-  const { orderId, amountDue } = req.body;
-
   try {
-    const invoice = new Invoice({
-      invoiceId: `INV-${Date.now()}`, // Générer un identifiant de facture unique
+    const { clientId, orderId, amountDue } = req.body;
+
+    // Création de la facture
+    const newInvoice = new Invoice({
+      clientId,
       orderId,
-      amountDue,
-      paymentStatus: 'pending', // Par défaut, le statut est "en attente"
+      amountDue
     });
 
-    await invoice.save(); // Sauvegarder la facture dans la base de données
-    res.status(201).json(invoice); // Retourner la facture créée
+    const savedInvoice = await newInvoice.save();
+    res.status(201).json(savedInvoice);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erreur lors de la création de la facture' });
+    res.status(500).json({ message: 'Erreur lors de la création de la facture', error });
   }
 };
 
-// Récupérer une facture par son ID
+// Récupérer une facture par ID
 const getInvoiceById = async (req, res) => {
-  const { id } = req.params;
-
   try {
-    const invoice = await Invoice.findById(id).populate('orderId'); // Peupler avec les données de la commande
-
-    if (!invoice) {
-      return res.status(404).json({ message: 'Facture non trouvée' });
-    }
-
-    res.status(200).json(invoice); // Retourner la facture
+    const invoice = await Invoice.findById(req.params.id).populate('clientId').populate('orderId');
+    if (!invoice) return res.status(404).json({ message: 'Facture non trouvée' });
+    res.status(200).json(invoice);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erreur lors de la récupération de la facture' });
+    res.status(500).json({ message: 'Erreur lors de la récupération de la facture', error });
   }
 };
 
-// Mettre à jour le statut d'une facture (ex. paiement effectué)
-const updateInvoiceStatus = async (req, res) => {
-  const { id } = req.params;
-  const { amountPaid, paymentStatus } = req.body;
-
+// Mettre à jour le statut ou le paiement d'une facture
+const updateInvoice = async (req, res) => {
   try {
-    const invoice = await Invoice.findByIdAndUpdate(
-      id,
-      { amountPaid, paymentStatus },
-      { new: true } // Retourner le document mis à jour
-    );
+    const { amountPaid, paymentStatus, status } = req.body;
+    const updatedData = {
+      amountPaid,
+      paymentStatus,
+      status,
+      updatedAt: Date.now()
+    };
 
-    if (!invoice) {
-      return res.status(404).json({ message: 'Facture non trouvée' });
-    }
+    const updatedInvoice = await Invoice.findByIdAndUpdate(req.params.id, updatedData, { new: true });
+    if (!updatedInvoice) return res.status(404).json({ message: 'Facture non trouvée' });
 
-    res.status(200).json(invoice); // Retourner la facture mise à jour
+    res.status(200).json(updatedInvoice);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erreur lors de la mise à jour de la facture' });
+    res.status(500).json({ message: 'Erreur lors de la mise à jour de la facture', error });
   }
 };
 
 // Récupérer toutes les factures
 const getAllInvoices = async (req, res) => {
   try {
-    const invoices = await Invoice.find().populate('orderId'); // Peupler avec les données de la commande
-    res.status(200).json(invoices); // Retourner toutes les factures
+    const invoices = await Invoice.find().populate('clientId').populate('orderId');
+    res.status(200).json(invoices);
   } catch (error) {
-    console.error(error);
-    res.status(500).json({ message: 'Erreur lors de la récupération des factures' });
+    res.status(500).json({ message: 'Erreur lors de la récupération des factures', error });
   }
 };
 
-// Exporter les fonctions du contrôleur
+// Supprimer une facture
+const deleteInvoice = async (req, res) => {
+  try {
+    const deletedInvoice = await Invoice.findByIdAndDelete(req.params.id);
+    if (!deletedInvoice) return res.status(404).json({ message: 'Facture non trouvée' });
+
+    res.status(200).json({ message: 'Facture supprimée avec succès' });
+  } catch (error) {
+    res.status(500).json({ message: 'Erreur lors de la suppression de la facture', error });
+  }
+};
+
 module.exports = {
   createInvoice,
   getInvoiceById,
-  updateInvoiceStatus,
+  updateInvoice,
   getAllInvoices,
+  deleteInvoice
 };

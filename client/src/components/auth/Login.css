@@ -17,9 +17,9 @@
   margin: 6rem auto 0; /* Ajusté pour laisser de l'espace pour l'avatar */
   margin-top: 10px;
   padding: 2rem;
-  background-color: #f3f1f05b;
+  background-color: #f3f1f071;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(170, 93, 4, 0.336);
+  box-shadow: 0 4px 12px rgba(163, 162, 161, 0.568);
   position: relative;
   text-align: center; /* Centre le contenu à l'intérieur */
   display: flex; /* Utiliser flex pour aligner les éléments horizontalement */
@@ -97,6 +97,19 @@
 
 .btn-primary:hover {
   background-color: #0056b3;
+}
+
+/* Loader personnalisé */
+.loader {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
 }
 
 /* Message d'erreur */
