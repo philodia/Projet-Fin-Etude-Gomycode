@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import './User.css';
 
 const User = () => {
   const [formData, setFormData] = useState({
@@ -10,27 +10,26 @@ const User = () => {
     permissions: []
   });
   const [message, setMessage] = useState('');
-  const [users, setUsers] = useState([]); // Liste des utilisateurs
-  const [editMode, setEditMode] = useState(false); // Mode d'édition
-  const [currentUserId, setCurrentUserId] = useState(null); // ID de l'utilisateur en cours de modification
-  const navigate = useNavigate();
+  const [users, setUsers] = useState([]); // List of users
+  const [editMode, setEditMode] = useState(false); // Edit mode
+  const [currentUserId, setCurrentUserId] = useState(null); // Current user ID for editing
 
   useEffect(() => {
-    // Charger la liste des utilisateurs au montage du composant
+    // Fetch users on component mount
     fetchUsers();
   }, []);
 
-  // Fonction pour récupérer tous les utilisateurs
+  // Fetch all users
   const fetchUsers = async () => {
     try {
       const response = await axios.get('http://localhost:5000/api/users');
       setUsers(response.data.users);
     } catch (error) {
-      setMessage('Erreur lors de la récupération des utilisateurs');
+      setMessage('Error fetching users');
     }
   };
 
-  // Gestion de l'entrée des données du formulaire
+  // Handle form input changes
   const handleInputChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -39,7 +38,7 @@ const User = () => {
     });
   };
 
-  // Gestion de la sélection des permissions
+  // Handle permission checkbox changes
   const handlePermissionChange = (e) => {
     const { value, checked } = e.target;
     setFormData((prevData) => {
@@ -50,31 +49,31 @@ const User = () => {
     });
   };
 
-  // Fonction pour créer ou mettre à jour un utilisateur
+  // Create or update user
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
       if (editMode) {
-        // Mise à jour de l'utilisateur
-        await axios.put(`/api/users/${currentUserId}`, formData);
-        setMessage('Utilisateur mis à jour avec succès.');
+        // Update user
+        await axios.put(`http://localhost:5000/api/users/${currentUserId}`, formData);
+        setMessage('User updated successfully.');
       } else {
-        // Création d'un nouvel utilisateur
-        await axios.post('/api/users', formData);
-        setMessage('Utilisateur créé avec succès.');
+        // Create a new user
+        await axios.post('http://localhost:5000/api/users', formData);
+        setMessage('User created successfully.');
       }
       resetForm();
       fetchUsers();
     } catch (error) {
-      setMessage(error.response?.data?.message || 'Erreur lors de la création ou de la mise à jour de l\'utilisateur');
+      setMessage(error.response?.data?.message || 'Error creating or updating user');
     }
   };
 
-  // Fonction pour remplir le formulaire avec les données d'un utilisateur pour l'édition
+  // Fill form with user data for editing
   const handleEdit = (user) => {
     setFormData({
       username: user.username,
-      password: '', // Laisser vide pour ne pas afficher le mot de passe
+      password: '', // Leave empty to avoid showing the password
       role: user.role,
       permissions: user.permissions
     });
@@ -82,18 +81,18 @@ const User = () => {
     setEditMode(true);
   };
 
-  // Fonction pour supprimer un utilisateur
+  // Delete a user
   const handleDelete = async (userId) => {
     try {
-      await axios.delete(`/api/users/${userId}`);
-      setMessage('Utilisateur supprimé avec succès.');
+      await axios.delete(`http://localhost:5000/api/users/${userId}`);
+      setMessage('User deleted successfully.');
       fetchUsers();
     } catch (error) {
-      setMessage('Erreur lors de la suppression de l\'utilisateur');
+      setMessage('Error deleting user');
     }
   };
 
-  // Fonction pour réinitialiser le formulaire
+  // Reset form
   const resetForm = () => {
     setFormData({
       username: '',
@@ -107,11 +106,11 @@ const User = () => {
 
   return (
     <div className="container mt-5">
-      <h2>{editMode ? 'Éditer l\'utilisateur' : 'Créer un utilisateur'}</h2>
+      <h2>{editMode ? 'Edit User' : 'Create User'}</h2>
       {message && <div className="alert alert-info">{message}</div>}
       <form onSubmit={handleSubmit}>
         <div className="form-group mb-3">
-          <label>Nom d'utilisateur</label>
+          <label>Username</label>
           <input
             type="text"
             name="username"
@@ -123,19 +122,19 @@ const User = () => {
         </div>
 
         <div className="form-group mb-3">
-          <label>Mot de passe</label>
+          <label>Password</label>
           <input
             type="password"
             name="password"
             value={formData.password}
             onChange={handleInputChange}
             className="form-control"
-            required={!editMode} // Le mot de passe est requis uniquement en mode création
+            required={!editMode} // Required only in creation mode
           />
         </div>
 
         <div className="form-group mb-3">
-          <label>Rôle</label>
+          <label>Role</label>
           <select
             name="role"
             value={formData.role}
@@ -143,7 +142,7 @@ const User = () => {
             className="form-control"
             required
           >
-            <option value="">Sélectionner un rôle</option>
+            <option value="">Select a role</option>
             <option value="admin">Admin</option>
             <option value="manager">Manager</option>
             <option value="accountant">Accountant</option>
@@ -161,7 +160,7 @@ const User = () => {
               checked={formData.permissions.includes('view_reports')}
               className="form-check-input"
             />
-            <label className="form-check-label">Voir les rapports</label>
+            <label className="form-check-label">View Reports</label>
           </div>
           <div className="form-check">
             <input
@@ -172,7 +171,7 @@ const User = () => {
               checked={formData.permissions.includes('edit_users')}
               className="form-check-input"
             />
-            <label className="form-check-label">Éditer les utilisateurs</label>
+            <label className="form-check-label">Edit Users</label>
           </div>
           <div className="form-check">
             <input
@@ -183,26 +182,26 @@ const User = () => {
               checked={formData.permissions.includes('manage_finances')}
               className="form-check-input"
             />
-            <label className="form-check-label">Gérer les finances</label>
+            <label className="form-check-label">Manage Finances</label>
           </div>
         </div>
 
         <button type="submit" className="btn btn-primary">
-          {editMode ? 'Mettre à jour l\'utilisateur' : 'Créer l\'utilisateur'}
+          {editMode ? 'Update User' : 'Create User'}
         </button>
         {editMode && (
           <button type="button" onClick={resetForm} className="btn btn-secondary ms-2">
-            Annuler
+            Cancel
           </button>
         )}
       </form>
 
-      <h2 className="mt-5">Liste des utilisateurs</h2>
+      <h2 className="mt-5">User List</h2>
       <table className="table">
         <thead>
           <tr>
-            <th>Nom d'utilisateur</th>
-            <th>Rôle</th>
+            <th>Username</th>
+            <th>Role</th>
             <th>Permissions</th>
             <th>Actions</th>
           </tr>
@@ -214,8 +213,8 @@ const User = () => {
               <td>{user.role}</td>
               <td>{user.permissions.join(', ')}</td>
               <td>
-                <button onClick={() => handleEdit(user)} className="btn btn-sm btn-warning me-2">Éditer</button>
-                <button onClick={() => handleDelete(user._id)} className="btn btn-sm btn-danger">Supprimer</button>
+                <button onClick={() => handleEdit(user)} className="btn btn-sm btn-warning me-2">Edit</button>
+                <button onClick={() => handleDelete(user._id)} className="btn btn-sm btn-danger">Delete</button>
               </td>
             </tr>
           ))}

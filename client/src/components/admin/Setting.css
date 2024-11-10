@@ -1,0 +1,90 @@
+/* Setting.css */
+
+/* Container styling */
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  h2 {
+    font-size: 1.75rem;
+    color: #343a40;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  h3 {
+    font-size: 1.5rem;
+    color: #343a40;
+    font-weight: 500;
+    margin-top: 30px;
+  }
+  
+  h4 {
+    font-size: 1.25rem;
+    color: #343a40;
+    margin-bottom: 10px;
+  }
+  
+  /* Form styling */
+  .form-group label {
+    font-weight: 500;
+    color: #495057;
+  }
+  
+  .form-control {
+    border: 1px solid #ced4da;
+    border-radius: 4px;
+    padding: 8px;
+  }
+  
+  .form-control[type="color"] {
+    width: 100%;
+    padding: 0;
+    height: 35px;
+  }
+  
+  .form-text {
+    color: #6c757d;
+    font-size: 0.875rem;
+  }
+  
+  /* Button styling */
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    font-size: 1rem;
+    border-radius: 4px;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+  
+  /* Preview section styling */
+  hr {
+    margin: 30px 0;
+  }
+  
+  .preview {
+    padding: 20px;
+    margin-top: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  }
+  
+  .preview p {
+    margin: 0;
+    font-size: inherit;
+  }
+  
+  .preview h4 {
+    margin-top: 0;
+  }
+  

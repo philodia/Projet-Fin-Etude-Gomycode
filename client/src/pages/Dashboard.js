@@ -1,28 +1,49 @@
+// Dashboard.js
 import React, { useContext } from 'react';
 import { Navigate } from 'react-router-dom';
 import AdminDashboard from './AdminDashboard';
 import ManagerDashboard from './ManagerDashboard';
 import AccountantDashboard from './AccountantDashboard';
 import { AuthContext } from '../context/AuthContext';
+import './Dashboard.css';
 
 const Dashboard = () => {
   const { user } = useContext(AuthContext);
 
   if (!user) {
-    // Si l'utilisateur n'est pas connecté, redirige vers la page de connexion
     return <Navigate to="/" />;
   }
 
-  // Rendu du tableau de bord correspondant au rôle de l'utilisateur
   switch (user.role) {
     case 'admin':
-      return <AdminDashboard />;
+      return (
+        <div className="dashboard-container">
+          <h2 className="dashboard-title">Admin Dashboard</h2>
+          <div className="dashboard-content admin-dashboard">
+            <AdminDashboard />
+          </div>
+        </div>
+      );
     case 'manager':
-      return <ManagerDashboard />;
+      return (
+        <div className="dashboard-container">
+          <h2 className="dashboard-title">Manager Dashboard</h2>
+          <div className="dashboard-content manager-dashboard">
+            <ManagerDashboard />
+          </div>
+        </div>
+      );
     case 'accountant':
-      return <AccountantDashboard />;
+      return (
+        <div className="dashboard-container">
+          <h2 className="dashboard-title">Accountant Dashboard</h2>
+          <div className="dashboard-content accountant-dashboard">
+            <AccountantDashboard />
+          </div>
+        </div>
+      );
     default:
-      return <Navigate to="/access-denied" />; // Redirection vers une page d'accès refusé pour un rôle non autorisé
+      return <Navigate to="/access-denied" />;
   }
 };
 

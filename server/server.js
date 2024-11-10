@@ -14,6 +14,7 @@ const orderRoutes = require('./routes/orderRoutes'); // Chemin vers vos routes d
 const invoiceRoutes = require('./routes/invoiceRoutes');
 const expenseRoutes = require('./routes/expenseRoutes');
 const reportRoutes = require('./routes/reportRoutes');
+const salesRoutes = require('./routes/sales');
 
 // Créer une instance d'Express
 const app = express();
@@ -26,7 +27,7 @@ app.use(bodyParser.json());
 
 // Route 
 //http://localhost:5000/auth*
-app.use('/auth', authroutes);
+app.use('/api/auth', authroutes);
 app.use('./api/users', userRoutes);
 app.use('/api/product', productRoutes);
 app.use('/api/customer', customerRoutes);
@@ -34,6 +35,7 @@ app.use('/api/orders', orderRoutes);
 app.use('/api/invoices', invoiceRoutes);
 app.use('/api/expenses', expenseRoutes);
 app.use('/api/reports', reportRoutes);
+app.use('/api/sales', salesRoutes);
 
 
 // Écouter le serveur sur le port spécifié

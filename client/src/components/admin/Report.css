@@ -1,0 +1,99 @@
+/* Report.css */
+
+/* Container styling */
+.container {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Title styling */
+  h2 {
+    font-size: 1.75rem;
+    color: #343a40;
+    font-weight: 600;
+    margin-bottom: 20px;
+  }
+  
+  /* Loading and error messages */
+  .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    padding: 10px;
+    border-radius: 5px;
+    margin-bottom: 20px;
+  }
+  
+  p {
+    color: #6c757d;
+    font-size: 1rem;
+  }
+  
+  /* Table styling */
+  .table {
+    width: 100%;
+    margin-top: 20px;
+    border-collapse: collapse;
+  }
+  
+  .table th,
+  .table td {
+    padding: 12px;
+    border: 1px solid #dee2e6;
+    text-align: left;
+  }
+  
+  .table th {
+    background-color: #007bff;
+    color: #ffffff;
+    font-weight: 600;
+  }
+  
+  .table tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  /* Highlight total price */
+  .table td:nth-child(5) {
+    font-weight: bold;
+    color: #28a745;
+  }
+  
+  /* Status badges */
+  .table td:last-child {
+    font-weight: 500;
+    color: #ffffff;
+    text-align: center;
+  }
+  
+  .table td:last-child::before {
+    content: attr(data-status);
+    display: inline-block;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+  
+  .table td:last-child[data-status="Completed"] {
+    background-color: #28a745;
+  }
+  
+  .table td:last-child[data-status="Pending"] {
+    background-color: #ffc107;
+  }
+  
+  .table td:last-child[data-status="Cancelled"] {
+    background-color: #dc3545;
+  }
+  
+  /* No reports message */
+  .no-reports {
+    font-size: 1.1rem;
+    color: #6c757d;
+    text-align: center;
+    margin-top: 20px;
+  }
+  
