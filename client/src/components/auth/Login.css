@@ -1,5 +1,5 @@
 /* Styles généraux */
- body {
+body {
   background-image: url('../../assets/img/image2.jpeg'); /* Remplacez par le chemin de votre image */
   background-color: #706b6b;
   background-size: cover;
@@ -17,9 +17,9 @@
   margin: 6rem auto 0; /* Ajusté pour laisser de l'espace pour l'avatar */
   margin-top: 10px;
   padding: 2rem;
-  background-color: #f3f1f071;
+  background-color: #f3f1f060;
   border-radius: 8px;
-  box-shadow: 0 4px 12px rgba(163, 162, 161, 0.568);
+  box-shadow: 0 4px 12px rgba(139, 213, 231, 0.315);
   position: relative;
   text-align: center; /* Centre le contenu à l'intérieur */
   display: flex; /* Utiliser flex pour aligner les éléments horizontalement */
@@ -51,8 +51,6 @@
   padding: 2px; /* Ajoute de l'espace entre l'image et la bordure */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
-
-/* Autres styles restants inchangés... */
 
 /* Formulaire */
 .login-form .form-label {
@@ -97,19 +95,6 @@
 
 .btn-primary:hover {
   background-color: #0056b3;
-}
-
-/* Loader personnalisé */
-.loader {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
-}
-
-.spinner-border {
-  width: 3rem;
-  height: 3rem;
 }
 
 /* Message d'erreur */

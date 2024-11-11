@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../context/AuthContext';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faLock, faEye, faEyeSlash } from '@fortawesome/free-solid-svg-icons';
-import logo from '../../assets/logo/logo1.png'; // Assurez-vous que le chemin est correct
+import logo from '../../assets/logo/logo1.png';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Login.css';
+import Loader from './Loader'; // Importer le composant Loader
 
 const LoginForm = () => {
   const { login, user } = useContext(AuthContext);
@@ -13,13 +14,13 @@ const LoginForm = () => {
   const [password, setPassword] = useState('');
   const [showPassword, setShowPassword] = useState(false);
   const [error, setError] = useState('');
-  const [isLoading, setIsLoading] = useState(false); // État pour le loader
+  const [isLoading, setIsLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    setIsLoading(true); // Activer le loader
-    setError(''); // Réinitialiser les erreurs
+    setIsLoading(true);
+    setError('');
     try {
       const success = await login(username, password);
       if (success) {
@@ -30,7 +31,7 @@ const LoginForm = () => {
     } catch (error) {
       setError("Une erreur est survenue. Veuillez réessayer.");
     } finally {
-      setIsLoading(false); // Désactiver le loader
+      setIsLoading(false);
     }
   };
 
@@ -41,14 +42,9 @@ const LoginForm = () => {
   return (
     <div className="login-container">
       {isLoading ? (
-        <div className="loader">
-          <div className="spinner-border text-primary" role="status">
-            <span className="visually-hidden">Chargement...</span>
-          </div>
-        </div>
+        <Loader /> // Utilisation du composant Loader en tant qu'enfant
       ) : (
         <>
-          {/* Avatar de l'utilisateur et logo */}
           <div className="logo-avatar-container">
             <img src={logo} alt="Logo" className="login-logo" />
             <img src={user?.avatarUrl || '/assets/img/default-avatar.png'} alt="Avatar" className="avatar-image" />
@@ -59,7 +55,6 @@ const LoginForm = () => {
           {error && <div className="alert alert-danger">{error}</div>}
 
           <form onSubmit={handleSubmit}>
-            {/* Champ de nom d'utilisateur */}
             <div className="form-group mb-3 position-relative">
               <label htmlFor="username" className="form-label">Nom d'utilisateur</label>
               <div className="input-group">
@@ -78,7 +73,6 @@ const LoginForm = () => {
               </div>
             </div>
 
-            {/* Champ de mot de passe */}
             <div className="form-group mb-3 position-relative">
               <label htmlFor="password" className="form-label">Mot de passe</label>
               <div className="input-group">

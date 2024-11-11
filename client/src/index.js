@@ -44,7 +44,7 @@ function App() {
 
             {/* Routes spécifiques pour l'administrateur */}
             <Route
-              path="/admin/dashboard"
+              path="/dashboard/admin"
               element={
                 <PrivateRoute requiredRoles={['admin']}>
                   <Header />
@@ -76,7 +76,7 @@ function App() {
 
             {/* Routes pour les tableaux de bord des autres rôles */}
             <Route
-              path="/manager"
+              path="/dashboard/manager"
               element={
                 <PrivateRoute requiredRoles={['manager']}>
                   <Header />
@@ -86,7 +86,7 @@ function App() {
               }
             />
             <Route
-              path="/accountant"
+              path="/dashboard/accountant"
               element={
                 <PrivateRoute requiredRoles={['accountant']}>
                   <Header />
